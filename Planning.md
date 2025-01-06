@@ -16,6 +16,7 @@ Implementation
 
 Pseudocode 
 
+```
 	Start
 	function display_message(){
 		open chat(chat.txt, read)
@@ -29,7 +30,9 @@ Pseudocode
 		}
 		close chat 
 	}
+```
 
+```
 	function write_message(name){
 		string message
 		display_message()
@@ -45,21 +48,32 @@ Pseudocode
 		close chat
 	}
 
+```
+
+
+```
 	check_message(){
 		open chat(chat.txt, read)
 		open copy(cpchat.txt, read)
 		if (copy is_open and chat is_open){
 			//compares two files
 			while (getline(copy,line) and getline(chat,line1){
-				if (not line=line1)
+				if (not line==line1)
 				{
 					return true 
 				}
 			}
 		}
+		else{
+			display"file failed to open" 
+		}
+		return false
 	}
 
+```
 
+
+```
 	Main(){
 		int choice
 		string name, message
@@ -74,7 +88,7 @@ Pseudocode
 				display "would you like to write a message 1.Yes  2.No"
 				enter choice
 				open chat(chat,write)
-				if (choice=2){
+				if (choice==2){
 					break
 				}
 				//creates file then writes to it 
@@ -89,8 +103,10 @@ Pseudocode
 			allows the loop to break 
 			display "Would you like to continue 1.Yes  2.No"
 			enter choice
-			if (choice=2){
+			if (choice==2){
 				break
 			}
 			delay 30sec
 	}
+
+```
