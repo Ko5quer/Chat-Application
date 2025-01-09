@@ -57,7 +57,7 @@ Pseudocode
 		open copy(cpchat.txt, read)
 		if (copy is_open and chat is_open){
 			//compares two files
-			while (getline(copy,line) and getline(chat,line1){
+			while (getline(copy,line) and getline(chat,line1)){
 				if (not line==line1)
 				{
 					return true 

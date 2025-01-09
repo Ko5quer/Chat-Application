@@ -13,7 +13,7 @@ def write_message(name):
     try:
         with open("chat.txt","a") as chat:
             message=input(name +":")
-            chat.write(message)
+            chat.write(message+'\n')
     except FileNotFoundError:
         print ("file faied to open")
 
@@ -26,8 +26,11 @@ def check_message():
                 copy.write(line)
                 return True
     except FileNotFoundError:
-        print("file failed to open")
+        return False
     return False
+
+
+
 
 
 

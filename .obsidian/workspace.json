@@ -162,6 +162,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c68ba6817a6a9758",
-  "lastOpenFiles": []
+  "active": "57bdd10fe9822ccd",
+  "lastOpenFiles": [
+    "chat.txt",
+    "test.py",
+    "__pycache__/message.cpython-312.pyc",
+    "__pycache__",
+    "Main.py",
+    "message.py"
+  ]
 }
