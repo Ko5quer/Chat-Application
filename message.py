@@ -28,7 +28,8 @@ def check_message():
                 copy.write(content)
                 return True
     except FileNotFoundError:
-        return False
+        with open("copy.txt","w") as copy:
+            copy.write("file created")
     return False
 
 
