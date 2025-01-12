@@ -19,7 +19,8 @@ while True:
                 else:
                     print("1")
                     time.sleep(30)
-                    continue         
+                    continue
+                time.sleep(30)         
     except FileNotFoundError:
         with open("message.txt","w") as chat, open("copy.txt","w") as copy:
             message=str(input("Enter the first message: "))

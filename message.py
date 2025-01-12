@@ -12,8 +12,10 @@ def write_message(name):
     display_message()
     try:
         with open("chat.txt","a") as chat:
-            message=input(name +":")
-            chat.write(name+ ": "+message+'\n')
+                
+                message=input(name +":")
+                chat.write(name+ ": "+message+'\n')
+
     except FileNotFoundError:
         print ("file faied to open")
 
