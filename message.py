@@ -12,28 +12,33 @@ def write_message(name):
     display_message()
     try:
         with open("chat.txt","a") as chat:
-            message=input(name +":")
-            chat.write(name+ ": "+message+'\n')
+                    message=input(name +":")
+                    chat.write(name+ ": "+message+'\n')
+
     except FileNotFoundError:
         print ("file faied to open")
 
 def check_message():
     try:
-        with open ("chat.txt","r") as chat, open("copy.txt","r+") as copy:
+        with open ("chat.txt","r") as chat, open("copy.txt","r") as copy:
             content=chat.read()
             content_cpy=copy.read()
 
             #update the copy if the lines are different   
-            if (content!=content_cpy):
+    except FileNotFoundError:
+        with open("copy.txt","w") as copy:
+            copy.write("file created")
+    try:
+        with open("copy.txt","w" ) as copy:     
+            if (not content==content_cpy):
                 copy.write(content)
+                print("true")
                 return True
+            else:
+                print ("false")
+                return False
+            
     except FileNotFoundError:
         with open("copy.txt","w") as copy:
             copy.write("file created")
     return False
-
-
-
-
-
-
