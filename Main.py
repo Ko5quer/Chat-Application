@@ -1,5 +1,5 @@
 
-from message import write_message,check_message
+from message import write_message,check
 import time 
 
 
@@ -14,7 +14,7 @@ while True:
             if (enter==1):
                 write_message(name)
             while True:     
-                if (check_message()):
+                if (check()):
                     write_message(name)
                     time.sleep(30)
                 else:

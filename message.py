@@ -1,9 +1,12 @@
+line=" "
+copy=" "
+
+
 
 def display_message():
     try:
         with open("chat.txt", "r") as chat:
-            line=chat.read()
-            print(line)
+            print(chat.read())
     except FileNotFoundError:
         print ("The file failed to open")
 
@@ -42,3 +45,24 @@ def check_message():
         with open("copy.txt","w") as copy:
             copy.write("file created")
     return False
+
+def check():
+    global copy, line
+    try:
+        with open("chat.txt","r") as chat:
+            line=chat.read()
+            if(line!=copy):
+                change()
+                return True
+            else:
+                return False
+
+
+    except FileNotFoundError:
+        print("File not found")
+
+def change():
+    global copy, line
+    copy=line
+
+
