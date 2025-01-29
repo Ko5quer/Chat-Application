@@ -11,10 +11,14 @@
             "id": "c68ba6817a6a9758",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Planning.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Planning"
             }
           }
         ]
@@ -73,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "0fb28c65c829a803",
@@ -160,6 +165,7 @@
   },
   "active": "c68ba6817a6a9758",
   "lastOpenFiles": [
+    "README.md",
     "Planning.md",
     "chat.txt",
     "test.py",

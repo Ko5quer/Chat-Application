@@ -35,12 +35,13 @@ Pseudocode
 ```
 	function write_message(name){
 		string message
-		display_message()
+		call display_message()
 		open chat (chat.txt, append)
 		display name ":"
 		enter message
 		if (chat is_open){
 			chat <<message <<"/n"
+			call change()
 		}
 		else {
 			display "file failed to open"
@@ -50,11 +51,11 @@ Pseudocode
 
 ```
 
-
+~This did not work and  a better method was used which used global variables
 ```
-	check_message(){
+	function check_message(){
 		open chat(chat.txt, read)
-		open copy(cpchat.txt, read)
+		open copy(cpchat.txt, read
 		if (copy is_open and chat is_open){
 			//compares two files
 			while (getline(copy,line) and getline(chat,line1)){
@@ -72,41 +73,81 @@ Pseudocode
 
 ```
 
+``
+
+```
+	function check(){
+		global string copy, line
+		open chat(chat.txt,read)
+		if (chat is_open){
+			call change()
+			return true
+		}
+		else{
+			return false
+		}
+	}
+```
+
+```
+	function change(){
+		global string logs, cp_logs
+		cp_logs=logs
+	}
+```
 
 ```
 	Main(){
-		int choice
-		string name, message
-		display "Enter your username"
-		enter name
-		while (true)
-			//checks to see if file exists
+		string name
+		display "Enter your username: "
+			enter name
+		while (true){
 			open chat(chat.txt,read)
-			
-			if (not chat is_open){
-				//breaks if things dont work
-				display "would you like to write a message 1.Yes  2.No"
+			if (chat is_open){
+				display "file opened succesfully"
+				display "Would you like to write a message 1.Yes 2.No"
 				enter choice
-				open chat(chat,write)
-				if (choice==2){
-					break
+				if (choice==1){
+					while true:
+						//To check if the  is an update to the file and allow the
+						//user to write if the is a new message
+						if (call check()){
+							call write_message(name)
+							delay 10sec
+						}
+						else
+							delay 10sec
+						}
 				}
-				//creates file then writes to it 
-				display name ": "
-				enter message 
-				chat<<name<<":"<<message
-				close chat
+				else{
+					display("exiting the system")
+				}
 			}
-			else {
-				write_message(name)
+			//creates a file if the file is not there
+			else{
+				open chat(chat.txt,write)
+				display "No message found, Enter the first message:"
+				enter message
+				chat<<name<<": "<<message<<"\n"
+				chat.close
 			}
-			allows the loop to break 
-			display "Would you like to continue 1.Yes  2.No"
-			enter choice
-			if (choice==2){
-				break
-			}
-			delay 30sec
+		}
 	}
+```
 
+```
+
+Variables used
+	files
+		chat.txt //Name of the file where the chat logs are used
+		chat //Used to interact with chat.txt'
+	normal variables
+		string name 
+		string message //Stores the message user writes
+		int choice //Gives user option to write message or not
+	global variables
+		logs //Keeps track of chat.txt content
+		cp_logs //compares with logs to see if the is a change in the file
+		
+	
 ```
