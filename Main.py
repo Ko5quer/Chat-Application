@@ -12,21 +12,21 @@ while True:
             enter=int(input("Would you like to write a message: 1.Yes   2.No: "))
 
             if (enter==1):
-                write_message(name)
-            while True:     
-                if (check()):
-                    write_message(name)
-                    time.sleep(30)
-                else:
-                    print("1")
-                    time.sleep(30)
-                    continue   
+                while True:     
+                    if (check()):
+                        write_message(name)
+                        time.sleep(30)
+                    else:
+                        print("1")
+                        time.sleep(30)
+                        continue   
+            else:
+                print("Exiting the system")
                   
     except FileNotFoundError:
-        with open("chat.txt","w") as chat, open("copy.txt","w") as copy:
-            message=str(input("Enter the first message "))
+        with open("chat.txt","w") as chat:
+            message=str(input("Enter the first message: "))
             chat.write(name+": "+message+"\n")
-            copy.write(name+": "+message+"\n")
 
 
 
