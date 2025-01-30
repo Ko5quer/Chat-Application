@@ -10,22 +10,21 @@ name=str(input("Enter your username: "))
 while True:
     try:
         with open("chat.txt","r") as file:
-            print("file opened succesfully")
-            choice=int(input("Would you like to write a message: 1.Yes   2.No 3.Exit"))
+            choice=int(input("1.Write message \n2.Refresh \n3.Exit \nPlease choose what you want to do: "))
 
-            if (choice==1):
-                while True:     
-                    if (check()):
+            if (choice==1): 
                         write_message(name)
                         #to delay it and stop spam messages
                         time.sleep(10)
-                    else:
-                        print("1")
                         time.sleep(10)
             elif (choice==2):
-                print("Exiting the system")
+                if (check()):
+                    write_message(name)
+                else:
+                     print("No new messages found, try again")
             elif (choice==3):
                 print("Exiting the system. Goodbye!")
+                break
             else:
                 print("Please choose between 1,2 and 3")      
 
