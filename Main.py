@@ -1,5 +1,5 @@
 
-from message import write_message,check, change
+from message import write_message,check, define_variable
 import time 
 
 
@@ -7,6 +7,7 @@ import time
 
 #Gets user input
 name=str(input("Enter your username: "))
+define_variable(name)
 while True:
     try:
         with open("chat.txt","r") as file:
@@ -32,10 +33,8 @@ while True:
                  print("Please choose between 1,2 and 3")      
 
     except FileNotFoundError:
-        #To create a file when a file doesnt exist
-        with open("chat.txt","w") as chat:
-            message=str(input("Enter the first message: "))
-            chat.write(name+": "+message+"\n")
+        print("File not found")
+
 
 
 

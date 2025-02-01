@@ -10,3 +10,7 @@ Junior: hello
 Junior: hi
 Prince: hello
 Junior: wow
+Junior: Hello
+Junior: hi
+Junioe: wow
+Junior: hi
