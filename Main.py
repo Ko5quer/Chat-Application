@@ -6,12 +6,14 @@ import time
 #Main
 
 #Gets user input
+print("--------------User Info--------------")
 name=str(input("Enter your username: "))
+print("\n")
 define_variable(name)
 while True:
     try:
         with open("chat.txt","r") as file:
-            print("*****Chat-Application-System*****")
+            print("\n*****Chat-Application-System*****")
             try:
                 choice=int(input("1.Write message \n2.Refresh \n3.Exit \nPlease choose what you want to do: "))
 
@@ -21,9 +23,13 @@ while True:
                             time.sleep(10)
                 elif (choice==2):
                     if (check()):
+                        print("-"*50)
                         print ("New message detected")
+                        print("-"*50, end="\n")
                     else:
+                        print("-"*50)
                         print("No new messages found, try again")
+                        print("-"*50 ,end="\n")
                 elif (choice==3):
                     print("Exiting the system. Goodbye!")
                     break
