@@ -1,5 +1,4 @@
-
-from message import write_message,check, define_variable
+from message import Texts
 import time 
 
 
@@ -9,7 +8,7 @@ import time
 print("--------------User Info--------------")
 name=str(input("Enter your username: "))
 print("\n")
-define_variable(name)
+text=Texts(name)
 while True:
     try:
         with open("chat.txt","r") as file:
@@ -18,11 +17,11 @@ while True:
                 choice=int(input("1.Write message \n2.Refresh \n3.Exit \nPlease choose what you want to do: "))
 
                 if (choice==1): 
-                            write_message(name)
+                            text.write_message()
                             #to delay it and stop spam messages
                             time.sleep(10)
                 elif (choice==2):
-                    if (check()):
+                    if (text.check()):
                         print("-"*50)
                         print ("New message detected")
                         print("-"*50, end="\n")
