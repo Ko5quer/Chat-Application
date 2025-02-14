@@ -21,14 +21,16 @@ while True:
                             #to delay it and stop spam messages
                             time.sleep(10)
                 elif (choice==2):
-                    if (text.check()):
+                    if (text.check()==4):
                         print("-"*50)
                         print ("New message detected")
                         print("-"*50, end="\n")
-                    else:
+                    elif(text.check()==3):
                         print("-"*50)
                         print("No new messages found, try again")
                         print("-"*50 ,end="\n")
+                    else:
+                         print ("this is just broken")
                 elif (choice==3):
                     print("Exiting the system. Goodbye!")
                     break

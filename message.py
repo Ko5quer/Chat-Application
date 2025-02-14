@@ -3,7 +3,6 @@ class Texts:
     def __init__(self,name):
         self.name=name
         self.logs=" "
-        self.cplogs=" "
     
     def def_file(self):
         try:
@@ -29,26 +28,23 @@ class Texts:
                         message=input(self.name +":")
                         chat.write(self.name+ ": "+message+'\n')
                         self.logs=chat.read()
-                        self.change()
         except FileNotFoundError:
             print("File failed to open")
     
     def check(self):
-        self.update()
-        if(self.logs != self.cplogs):
-            return True
-        else:
-            return False
-        
-    def update(self):
         try:
             with open("chat.txt","r") as chat:
-                self.logs=chat.read()
+                content=chat.read()
+                print(f"Content of file:\n{content}")
+                print(f"Content of ccopy:\n{self.logs}")
+                if(content==self.logs):
+                    return 3
+                else:
+                    self.logs=content
+                    return 4
+                print(content)
         except FileNotFoundError:
-            print("Error finding chat logs")
-
-    def change(self):
-        self.cplogs=self.logs
+            print("Chat logs not found")
 
 
 
